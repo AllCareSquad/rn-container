@@ -6,7 +6,7 @@ Baca [Membuat Docker Image Untuk Aplikasi React Native](https://lanjutkoding.com
 ## Docker on your local machine
 ### Build
 ```bash
-docker build -qt allcaresquad/rn-container:{version_tag} -f RNContainer/Dockerfile .
+docker build -qt allcaresquad/rn-container:{version_tag} -f Dockerfile .
 ```
 
 ### Create & start container
