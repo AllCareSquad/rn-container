@@ -16,11 +16,8 @@ ARG ANDROID_BUILD_TOOLS_VERSION=31.0.0
 RUN apt update && apt install -y curl && \
 curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - && \
 apt -y install gcc g++ make && \
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-apt update && apt -y install yarn && \
 apt install -y nodejs openjdk-11-jre-headless python3
-RUN apt install -y expect git openjdk-11-jdk-headless wget unzip vim && \
+RUN apt install -y expect git openjdk-11-jdk-headless wget zip unzip vim && \
 wget https://dl.google.com/android/repository/commandlinetools-linux-${SDK_VERSION}_latest.zip
 RUN mkdir -p Android/Sdk && unzip commandlinetools-linux-${SDK_VERSION}_latest.zip -d Android/Sdk/cmdline-tools && \
 mv Android/Sdk/cmdline-tools/cmdline-tools Android/Sdk/cmdline-tools/latest
@@ -36,6 +33,7 @@ RUN sdkmanager "platform-tools" "platforms;android-30" "platforms;${ANDROID_VERS
 RUN sdkmanager --install "ndk;${NDK_VERSION}"
 RUN sdkmanager --install "cmake;${CMAKE_VERSION}"
 RUN sdkmanager --licenses
+RUN corepack enable
 RUN yarn global --silent --no-progress add appcenter-cli firebase-tools
 
 CMD ["/bin/sh"]
