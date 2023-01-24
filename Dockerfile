@@ -37,6 +37,6 @@ RUN sdkmanager --licenses
 RUN gem install fastlane -NV
 RUN corepack enable
 RUN yarn global --silent --no-progress add appcenter-cli
-RUN yarn global --silent --no-progress add firebase-tools@11.19.0 --strict-semver
+# RUN yarn global --silent --no-progress add firebase-tools@11.19.0
 
 CMD ["/bin/sh"]
