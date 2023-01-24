@@ -36,6 +36,7 @@ RUN sdkmanager --install "cmake;${CMAKE_VERSION}"
 RUN sdkmanager --licenses
 RUN gem install fastlane -NV
 RUN corepack enable
-RUN yarn global --silent --no-progress add appcenter-cli firebase-tools@11.20.0
+RUN yarn global --silent --no-progress add appcenter-cli
+RUN yarn global --silent --no-progress add firebase-tools@11.20.0
 
 CMD ["/bin/sh"]
