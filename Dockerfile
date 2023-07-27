@@ -29,7 +29,7 @@ ENV PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 ENV PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 RUN yes | sdkmanager --sdk_root=${ANDROID_HOME} "tools"
-RUN sdkmanager "platform-tools" "platforms;android-30" "platforms;${ANDROID_VERSION}" "build-tools;30.0.2" "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
+RUN sdkmanager "platform-tools" "platforms;android-30" "platforms;${ANDROID_VERSION}" "build-tools;30.0.3" "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
 # If you use react-native-reanimated or react-native-mmkv-storage then install ndk & cmake
 RUN sdkmanager --install "ndk;${NDK_VERSION}"
 RUN sdkmanager --install "cmake;${CMAKE_VERSION}"
